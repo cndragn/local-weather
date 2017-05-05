@@ -11,7 +11,10 @@ var getTemp = function (data) {
   $("#temp").text(data["main"]["temp"]);
 };
 var getConditions = function (data) {
-  $("#conditions").text(data["weather"]["icon"]);
+  $("#conditions").text(data["weather"][0]["main"]);
+};
+var getIcon = function (data) {
+  $("#icon").text(data["weather"][0]["icon"]);
 };
 
 console.log(getTemp);
@@ -22,4 +25,5 @@ $(document).ready(function () {
   $.getJSON(html, getRegion, "jsonp");
   $.getJSON(html2, getTemp, "jsonp");
   $.getJSON(html2, getConditions, "jsonp");
+  $.getJSON(html2, getIcon, "jsonp");
 });
