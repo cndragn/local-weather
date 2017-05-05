@@ -14,10 +14,9 @@ var getConditions = function (data) {
   $("#conditions").text(data["weather"][0]["main"]);
 };
 var getIcon = function (data) {
-  $("#icon").text(data["weather"][0]["icon"]);
+  $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
 };
 
-console.log(getTemp);
 
 //Calls a random quote
 $(document).ready(function () {
