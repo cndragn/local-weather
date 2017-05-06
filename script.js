@@ -1,5 +1,5 @@
 var html = "https://ipinfo.io/geo";
-var html2 = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=c852eff24ce63a4936c2501cfe5124fc";
+var html2 = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&&units=imperial&appid=c852eff24ce63a4936c2501cfe5124fc";
 
 var getCity = function (data) {
   $("#city").text(data["city"]);
@@ -26,3 +26,17 @@ $(document).ready(function () {
   $.getJSON(html2, getConditions, "jsonp");
   $.getJSON(html2, getIcon, "jsonp");
 });
+
+//Change temp F to C
+
+var temp2 = ((getTemp - 32) * 5 / 9).toFixed(0);
+
+      $("button").click(function() {
+        if ($('.btn').is(":contains('\xB0 F')")) {
+           $("#temp").text('Fahrenheiet');
+          $('.btn').html('View ' + '\xB0 C');
+        } else {
+           $("#temp").text('Celcius');
+          $('.btn').html('View ' + '\xB0 F');
+        }
+      });
