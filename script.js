@@ -39,10 +39,10 @@ $(document).ready(function() {
    $("button").click(function() {
         if ($('.btn').is(":contains('\xB0 F')")) {
            $("#temp").text(temp + '\xB0 F');
-          $('.btn').html('View ' + '\xB0 C');
+          $('.btn').html('| ' + '\xB0 C');
         } else {
             $("#temp").text(temp2 + '\xB0 C');
-          $('.btn').html('View ' + '\xB0 F');
+          $('.btn').html('| ' + '\xB0 F');
         }
       });
       
