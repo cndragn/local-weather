@@ -6,7 +6,7 @@
 CSS<br>
 JavaScript</p>
 
-View Project in Progress: - <a href="https://cndragn.github.io/local-weather/">https://cndragn.github.io/local-weather/</a>
+View final project: - <a href="http://codepen.io/cndragn/pen/OmgOzy">http://codepen.io/cndragn/pen/OmgOzy</a>
 
 <h2>Objective/User Stories:</h2>
 
