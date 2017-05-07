@@ -42,3 +42,10 @@ p {
     border: 0;
     outline: none;
 }
+#credit p {
+    font-size: 1em;
+}
+#credit a {
+    color: #fff;
+    text-decoration: underline;
+}
