@@ -1,9 +1,14 @@
+html {
+    height: 100%;
+}
+
 body {
     /* fallback */
     background-color: #86daf3;
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: #fff;
+    height: 100%;
 }
 h1, #temp {
     font-family: 'Megrim', sans-serif;
@@ -30,10 +35,12 @@ p {
     margin: 50px 0;
 }
 .btn {
+    font-family: 'Megrim', sans-serif;
     padding: 10px 0 0 10px;
     border: 0;
     background: none;
     font-size: 2em;
+    font-weight: 800;
     vertical-align: top;
 }
 .btn.focus, .btn.hover, button.btn.active, .btn:focus, .btn:hover, button.btn:active {
