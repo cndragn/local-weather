@@ -1,3 +1,4 @@
 body {
-    background: #c4eefe;
+  /* fallback */
+  background-color: #86daf3;
 }
