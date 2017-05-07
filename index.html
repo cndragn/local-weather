@@ -6,23 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link ref="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Megrim|Raleway" rel="stylesheet">
+        
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <div class="container">
         <div class="header text-center">
             <h1>Local Weather</h1>
+            <p><span id="city">City</span><span id="region">Region</span><span id="country">Country</span></p>
         </div>
-        <div class="text-center">
-            <p><span id="city">City</span><span id="region">Region</span>&nbsp;<span id="country">Country</span></p>
-            <span id="temp"></span><span id="temp"></span><button class='btn btn-primary'>| &#176;C</button>
-            <p><span id="conditions"></span></p>
-            <p><span id="icon"><img src="icons/04d.png"></span><br></p>
-            <div class='temp2'>
+        <div class ="row">
 
+            <div class="col-md-6 text-center">                
+                <span id="temp"></span><span id="temp"></span><button class='btn'>| &#176;C</button>
+                <p><span id="conditions"></span></p>
+            </div>
+            <div class="col-md-6 text-center">  
+                <p><span id="icon"><img src="icons/04d.png"></span><br></p>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

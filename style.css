@@ -1,4 +1,44 @@
 body {
     /* fallback */
     background-color: #86daf3;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: #fff;
+}
+h1, #temp {
+    font-family: 'Megrim', sans-serif;
+    font-size: 3em;
+    font-weight: 800;
+}
+p {
+    font-size: 2em;
+}
+.header p {
+    margin: 50px 0;
+}
+#conditions {
+    margin: 25px 0;
+}
+#temp {
+    font-size: 4em;
+}
+.container {
+    width: 600px;
+    max-width: 100%;
+}
+.row {
+    margin: 50px 0;
+}
+.btn {
+    padding: 10px 0 0 10px;
+    border: 0;
+    background: none;
+    font-size: 2em;
+    vertical-align: top;
+}
+.btn.focus, .btn.hover, button.btn.active, .btn:focus, .btn:hover, button.btn:active {
+    color: #fff;
+    text-decoration: none;
+    border: 0;
+    outline: none;
 }

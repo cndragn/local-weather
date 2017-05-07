@@ -7,18 +7,15 @@ $(document).ready(function () {
   $.getJSON("https://ipinfo.io/json/?callback=?", function (geo) {
 
     lat = geo.loc.split(",")[0];
-    lat = geo.loc.split(",")[1];
+    lon = geo.loc.split(",")[1];
     
-    console.log(lat);
 
     currentWeather(lat, lon);
 
     var city = geo.city;
     var region = geo.region;
     var country = geo.country;
-    var latlong = geo.loc;
-    
-    
+    var latlong = geo.loc;  
 
     $('#city').html(city);
     $('#region').html(', ' + region);
@@ -34,20 +31,22 @@ $(document).ready(function () {
 
       $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
 
-      var temp = ((data["main"]["temp"] - 273.15) * 9 / 5 + 32).toFixed(0);
-      var temp2 = (data["main"]["temp"] - 273.15).toFixed(0);
+      var temp2f = ((data["main"]["temp"] - 273.15) * 9 / 5 + 32).toFixed(0);
+      var temp2c = (data["main"]["temp"] - 273.15).toFixed(0);
+      
+      console.log(data["main"]["temp"]);
 
       bgcolor = (data["weather"][0]["icon"][2]);
       //bgcolor = "d";
 
-      $("#temp").text(temp + '\xB0 F');
+      $("#temp").text(temp2f + '\xB0 F');
 
       $("button").click(function () {
         if ($('.btn').is(":contains('\xB0 F')")) {
-          $("#temp").text(temp + '\xB0 F');
+          $("#temp").text(temp2f + '\xB0 F');
           $('.btn').html('| ' + '\xB0 C');
         } else {
-          $("#temp").text(temp2 + '\xB0 C');
+          $("#temp").text(temp2c + '\xB0 C');
           $('.btn').html('| ' + '\xB0 F');
         }
       });
