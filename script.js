@@ -1,15 +1,38 @@
-var html = "https://ipinfo.io/geo";
-var html2 = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=c852eff24ce63a4936c2501cfe5124fc";
+$(document).ready(function() {
 
-var getCity = function (data) {
-  $("#city").text(data["city"]);
-};
-var getRegion = function (data) {
-  $("#region").text(data["region"]);
-};
-var getTemp = function (data) {
+  var APIk = "c852eff24ce63a4936c2501cfe5124fc";
+  var lat = "0";
+  var lon = "0";
+  var u = "metric";
+
+  $.getJSON("http://ip-api.com/json/?callback=?", function(loc) {
+   
+    lat = loc.lat; //find the latitude and longitude via IP-address
+    lon = loc.lon;
+
+    currentWeather(lat, lon, "imperial", "℃", "m/s");
+    
+     var city = loc.city;
+     var region = loc.region;
+     var country = loc.countryCode;
+    
+    $('#city').html(city);
+    $('#region').html(', ' + region);
+    $('#country').html(', ' + country);
+  });
+
+  function currentWeather(x, y, units, sym, sym1, w) { //get the current weatherdata at openweathermap.org
+
+    var owm = "http://api.openweathermap.org/data/2.5/weather?lat=" + x + "&lon=" + y + "&APPID=" + APIk + "&callback=?";
+
+    $.getJSON(owm, function(data) { //the actual weather data
+      
+       $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
+  
   var temp = ((data["main"]["temp"] - 273.15) * 9/5 +32).toFixed(0);
   var temp2 = (data["main"]["temp"] - 273.15).toFixed(0);
+  
+  console.log(temp);
   
   $("#temp").text(temp + '\xB0 F');
   
@@ -22,20 +45,18 @@ var getTemp = function (data) {
           $('.btn').html('View ' + '\xB0 F');
         }
       });
-};
-var getConditions = function (data) {
-  $("#conditions").text(data["weather"][0]["main"]);
-};
-var getIcon = function (data) {
-  $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
-};
+      
+      var country = data.sys.country;
+      var conditions = data.weather[0].main;
+      var description = data.weather[0].description;
+
+      $('#country').html(country);
+      $('#conditions').html(conditions);
+      $('#more').html(description);
+    });
+
+  } //end of currenWeather
 
 
-//Calls a random quote
-$(document).ready(function () {
-  $.getJSON(html, getCity, "jsonp");
-  $.getJSON(html, getRegion, "jsonp");
-  $.getJSON(html2, getTemp, "jsonp");
-  $.getJSON(html2, getConditions, "jsonp");
-  $.getJSON(html2, getIcon, "jsonp");
-}); 
+
+});
