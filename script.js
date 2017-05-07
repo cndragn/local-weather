@@ -3,29 +3,34 @@ $(document).ready(function () {
   var APIk = "c852eff24ce63a4936c2501cfe5124fc";
   var lat = "0";
   var lon = "0";
-  var u = "metric";
 
-  $.getJSON("http://ip-api.com/json/?callback=?", function (loc) {
+  $.getJSON("https://ipinfo.io/json/?callback=?", function (geo) {
 
-    lat = loc.lat; //find the latitude and longitude via IP-address
-    lon = loc.lon;
+    lat = geo.loc.split(",")[0];
+    lat = geo.loc.split(",")[1];
+    
+    console.log(lat);
 
-    currentWeather(lat, lon, "imperial", "℃", "m/s");
+    currentWeather(lat, lon);
 
-    var city = loc.city;
-    var region = loc.region;
-    var country = loc.countryCode;
+    var city = geo.city;
+    var region = geo.region;
+    var country = geo.country;
+    var latlong = geo.loc;
+    
+    
 
     $('#city').html(city);
     $('#region').html(', ' + region);
     $('#country').html(', ' + country);
+    $('#loc').html(', ' + latlong);
   });
 
-  function currentWeather(x, y, units, sym, sym1, w) { //get the current weatherdata at openweathermap.org
+  function currentWeather(x, y) { //get openweathermap.org data
 
-    var owm = "http://api.openweathermap.org/data/2.5/weather?lat=" + x + "&lon=" + y + "&APPID=" + APIk + "&callback=?";
+    var weatherData = "http://api.openweathermap.org/data/2.5/weather?lat=" + x + "&lon=" + y + "&APPID=" + APIk + "&callback=?";
 
-    $.getJSON(owm, function (data) { //the actual weather data
+    $.getJSON(weatherData, function (data) {
 
       $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
 
@@ -60,25 +65,22 @@ $(document).ready(function () {
 
     function changeBackground(bgcolor) {
       if (bgcolor === "n") {
-      document.body.style.backgroundColor = "#084363";
-      document.body.style.background = "-webkit-linear-gradient(top, #062a42, #7176a0";
-      document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%, from(#062a42), to(#7176a0))";
-      document.body.style.background = "-moz-linear-gradient(top, #2F2727, #1a82f7";
-      document.body.style.background = "-ms-linear-gradient(top, #2F2727, #1a82f7";
-      document.body.style.background = "-o-linear-gradient(top, #2F2727, #1a82f7";
-    } else {
-      document.body.style.backgroundColor = "#86daf3";
-      document.body.style.background = "-webkit-linear-gradient(top, #86daf3, #e3b6ab";
-      document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%, from(#86daf3), to(#e3b6ab))";
-      document.body.style.background = "-moz-linear-gradient(top, #86daf3, #e3b6ab";
-      document.body.style.background = "-ms-linear-gradient(top, #86daf3, #e3b6ab";
-      document.body.style.background = "-o-linear-gradient(top, #86daf3, #e3b6ab";
-      
-    }
+        document.body.style.backgroundColor = "#084363";
+        document.body.style.background = "-webkit-linear-gradient(top, #062a42, #7176a0";
+        document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%, from(#062a42), to(#7176a0))";
+        document.body.style.background = "-moz-linear-gradient(top, #2F2727, #1a82f7";
+        document.body.style.background = "-ms-linear-gradient(top, #2F2727, #1a82f7";
+        document.body.style.background = "-o-linear-gradient(top, #2F2727, #1a82f7";
+      } else {
+        document.body.style.backgroundColor = "#86daf3";
+        document.body.style.background = "-webkit-linear-gradient(top, #86daf3, #e3b6ab";
+        document.body.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%, from(#86daf3), to(#e3b6ab))";
+        document.body.style.background = "-moz-linear-gradient(top, #86daf3, #e3b6ab";
+        document.body.style.background = "-ms-linear-gradient(top, #86daf3, #e3b6ab";
+        document.body.style.background = "-o-linear-gradient(top, #86daf3, #e3b6ab";
+
+      }
     }
   }
 
-}); //end of currenWeather
-
-
-
+}); 
