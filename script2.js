@@ -1,13 +1,22 @@
+$(document).ready(function () {
+  
 var html = "https://ipinfo.io/geo";
-var html2 = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=c852eff24ce63a4936c2501cfe5124fc";
+var html2 = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=c852eff24ce63a4936c2501cfe5124fc"; 
 
-var getCity = function (data) {
+var getLocation = function (data) {
   $("#city").text(data["city"]);
+   $("#region").text(data["region"]);
+   
+  console.log(data["region"]);
+  console.log(data["ip"]);
 };
-var getRegion = function (data) {
-  $("#region").text(data["region"]);
-};
-var getTemp = function (data) {
+
+var getWeather = function (data) {
+  
+  
+  $("#conditions").text(data["weather"][0]["main"]);
+  $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
+  
   var temp = ((data["main"]["temp"] - 273.15) * 9/5 +32).toFixed(0);
   var temp2 = (data["main"]["temp"] - 273.15).toFixed(0);
   
@@ -23,19 +32,8 @@ var getTemp = function (data) {
         }
       });
 };
-var getConditions = function (data) {
-  $("#conditions").text(data["weather"][0]["main"]);
-};
-var getIcon = function (data) {
-  $("#icon").html('<img src=\"icons/' + data["weather"][0]["icon"] + '.png" alt="current weather"\>');
-};
-
 
 //Calls a random quote
-$(document).ready(function () {
-  $.getJSON(html, getCity, "jsonp");
-  $.getJSON(html, getRegion, "jsonp");
-  $.getJSON(html2, getTemp, "jsonp");
-  $.getJSON(html2, getConditions, "jsonp");
-  $.getJSON(html2, getIcon, "jsonp");
+  $.getJSON(html, getLocation, "jsonp");
+  $.getJSON(html2, getWeather, "jsonp");
 }); 
