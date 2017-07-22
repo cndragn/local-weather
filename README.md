@@ -1,23 +1,23 @@
-<h1>Local Weather</h1>
+# Local Weather App
+* **Challenge:** [Show the Local Weather](https://www.freecodecamp.org/challenges/show-the-local-weather)
+* **Objective:**
+  * Build an app that is functionally similar to this: http://codepen.io/FreeCodeCamp/full/bELRjV
+* **User Stories:**
+  * I can see the weather in my current location.
+  * I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather.
+  * I can push a button to toggle between Fahrenheit and Celsius.
+  
+## Project Details
 
-<h2>FreeCodeCamp Int. Front End Dev Project</h2>
+**View My Project:** http://candicedavidson.com/portfolio/local-weather/
 
-<p>HTML<br>
-CSS<br>
-JavaScript</p>
+![Local Weather App](http://candicedavidson.com/images/local-weather.png)
 
-View final project: - <a href="http://codepen.io/cndragn/pen/OmgOzy">http://codepen.io/cndragn/pen/OmgOzy</a>
+## Technologies Used
 
-<h2>Objective/User Stories:</h2>
-
-<ul>
-<li>Objective: Build a CodePen.io app that is functionally similar to this: http://codepen.io/FreeCodeCamp/full/bELRjV</li>
-<li>Fulfill the below user stories. Use whichever libraries or APIs you need. Give it your own personal style</li>
-<li>User Story: I can see the weather in my current location</li>
-<li>User Story: I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather</li>
-<li>User Story: I can push a button to toggle between Fahrenheit and Celsius</li>
-<li>We recommend using the Open Weather API. This will require creating a free API key. Normally you want to avoid exposing API keys on CodePen, but we haven't been able to find a keyless API for weather</li>
-<li>Remember to use Read-Search-Ask if you get stuck</li>
-<li>When you are finished, click the "I've completed this challenge" button and include a link to your CodePen</li>
-<li>You can get feedback on your project by sharing it with your friends on Facebook</li>
-</ul>
+* HTML / CSS
+* Bootstrap
+* JavaScript
+* jQuery
+* OpenWeatherMap API
+* Ipoinfo.io API
