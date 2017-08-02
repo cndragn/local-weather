@@ -9,7 +9,8 @@ Thinking of calling in sick from work to go to the beach? Check your local weath
 
 ## Features
   * View the weather at your current location.
-  * Icon changes depending on the weather (e.g. snowy mountain, hot desert)
+  * Icon changes depending on the weather (e.g. sunny, thunderstorms)
+  * Background changes colour depending the time of day
   * Toggle between Fahrenheit and Celsius.
 
 ## Technologies Used
